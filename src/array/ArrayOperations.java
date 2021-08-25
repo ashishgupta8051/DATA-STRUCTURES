@@ -15,7 +15,7 @@ public class ArrayOperations {
             System.out.println("Array size is less then your input size......");
         }else {
             for (int i = 0 ; i < array_input_size; i++){
-                System.out.print("Enter the number : ");
+                System.out.print("Enter the number "+i+" : ");
                 int number = scanner.nextInt();
                 ary[i] = number;
             }
@@ -27,6 +27,10 @@ public class ArrayOperations {
             int index_number = scanner.nextInt();
             if (index_number > array_input_size){
                 System.out.println("Enter a correct index number max array input Size is : "+array_input_size);
+            }else if (array_input_size == array_size){
+                System.out.println("Your array size : "+array_size);
+                System.out.println("Your array input size : "+array_input_size);
+                System.out.println("You don't have enough space for insert element .......");
             }else {
                 insertElement(ary,array_input_size,add_number,index_number);
                 System.out.print("Enter the index number which you want to delete in array : ");
@@ -41,9 +45,9 @@ public class ArrayOperations {
     }
 
     //Traversing
-    private static void displayArray(int[] ary, int element_number) {
+    private static void displayArray(int[] ary, int array_input_size) {
         System.out.println("Array is ");
-        for (int i = 0 ; i < element_number; i++){
+        for (int i = 0 ; i < array_input_size; i++){
             System.out.print(ary[i]+" ");
         }
         System.out.println();
