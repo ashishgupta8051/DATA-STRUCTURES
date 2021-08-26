@@ -40,6 +40,9 @@ public class ArrayOperations {
                 }else {
                     deleteArray(ary,delete_index_number,array_input_size);
                 }
+                System.out.print("Enter the number which you want to search in array : ");
+                int search_index_number = scanner.nextInt();
+                searchArray(ary,search_index_number,array_input_size);
             }
         }
     }
@@ -56,7 +59,7 @@ public class ArrayOperations {
     //Insertion
     static void
     insertElement(int[] ary, int array_input_size, int insert_element, int array_index) {
-        for (int i = array_input_size - 1; i >= array_index; i--){
+        for (int i = array_input_size; i >= array_index; i--){
             ary[i+1] = ary[i];
         }
         ary[array_index] = insert_element;
@@ -66,9 +69,26 @@ public class ArrayOperations {
 
     //Deletion
     private static void deleteArray(int[] ary, int delete_index_number, int array_input_size) {
-        for (int i = delete_index_number; i < array_input_size; i++) {
+        for (int i = delete_index_number; i <= array_input_size; i++) {
             ary[i] = ary[i + 1];
         }
         displayArray(ary,array_input_size);
+    }
+
+    //Searching
+    private static void searchArray(int[] ary, int search_index_number, int array_input_size) {
+        int flag = 0;
+        for (int i = 1 ; i <= array_input_size; i++){
+            if (search_index_number == ary[i]){
+                flag = i + 1;
+                break;
+            }
+        }
+        if (flag != 0){
+            System.out.print("Value found at location at : "+flag);
+        }else {
+            System.out.print("Value not found");
+        }
+
     }
 }
